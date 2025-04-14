@@ -97,30 +97,6 @@ const ChatContainer = () => {
 		}
 	}, [messages]);
 
-	// Check for new messages and speak them if TTS is enabled
-	useEffect(() => {
-		if (
-			messages?.length > 0 &&
-			authUser?.enableTextToSpeech &&
-			!isSpeaking &&
-			synth.current
-		) {
-			const lastMessage = messages[messages.length - 1];
-			// Only speak messages from the other person
-			if (
-				lastMessage.senderId !== authUser._id &&
-				lastMessage.text &&
-				// Only speak messages received in the last 5 seconds
-				new Date() - new Date(lastMessage.createdAt) < 5000
-			) {
-				speakMessage(
-					lastMessage.text,
-					lastMessage.language || selectedUser.language || "en"
-				);
-			}
-		}
-	}, [messages, authUser?.enableTextToSpeech, isSpeaking]);
-
 	const getBestVoice = (languageCode) => {
 		const langConfig = LANGUAGE_VOICES[languageCode] || LANGUAGE_VOICES.en;
 

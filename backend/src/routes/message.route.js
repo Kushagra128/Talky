@@ -17,4 +17,7 @@ router.get("/:id", protectRoute, getMessages);
 // POST send a message to a user
 router.post("/:id", protectRoute, sendMessage);
 
+router.delete("/delete/:messageId", protectRoute, deleteMessage);
+
+
 export default router;

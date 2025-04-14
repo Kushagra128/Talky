@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import cloudinary from "../lib/cloudinary.js";
 
 export const signup = async (req, res) => {
-	const { username, email, password, language, enableTextToSpeech } = req.body;
+	const { z, email, password, language, enableTextToSpeech } = req.body;
 	try {
 		if (!username || !email || !password) {
 			return res

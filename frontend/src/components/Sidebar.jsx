@@ -91,7 +91,7 @@ const Sidebar = () => {
 							} sm:hidden lg:block text-left min-w-0 flex-1`}
 						>
 							<div className="font-medium truncate text-base">
-								{user.fullName}
+								{user.fullName}{user.username}
 							</div>
 							<div className="text-sm text-base-content/60">
 								{onlineUsers.includes(user._id) ? "Online" : "Offline"}
